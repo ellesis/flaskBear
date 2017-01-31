@@ -1,5 +1,4 @@
-from flask import Flask
-from flask import render_template
+from flask import Flask, render_template, redirect, url_for, request
 
 app = Flask(__name__)
 
@@ -9,7 +8,8 @@ def index():
 
 @app.route('/save', methods=['post'])
 def save():
-  return 'Saved!'
+  import pdb; pdb.set_trace()
+  return redirect( url_for('index'))
 
 
 
