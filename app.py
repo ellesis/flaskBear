@@ -1,4 +1,6 @@
-from flask import Flask, render_template, redirect, url_for, request
+import json
+from flask import (Flask, render_template, redirect, 
+  url_for, request, make_response)
 
 app = Flask(__name__)
 
@@ -8,8 +10,10 @@ def index():
 
 @app.route('/save', methods=['post'])
 def save():
-  import pdb; pdb.set_trace()
-  return redirect( url_for('index'))
+  response = make_response(redirect(url_for('index')))
+  response.set_cookie('character', json.dumps(dict(request.form.items())))
+  return response
+
 
 
 
