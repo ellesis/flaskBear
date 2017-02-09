@@ -1,9 +1,10 @@
 import json
 from flask import (Flask, render_template, redirect, 
-                   url_for, request, make_response)
+                   url_for, request, make_response, flash)
 from options import DEFAULTS
 
 app = Flask(__name__)
+app.secret_key = 'dkfskdjfkdsj@!gosjrekklsssfdk38498r'
 
 def get_saved_data():
   try:
@@ -11,8 +12,6 @@ def get_saved_data():
   except TypeError:
     data = {}
   return data
-
-
 
 @app.route('/')
 def index():
@@ -28,6 +27,7 @@ def builder():
 
 @app.route('/save', methods=['POST'])
 def save():
+  flash("Alright! That looks awesome!!")
   response = make_response(redirect(url_for('builder')))
   data = get_saved_data()
   data.update(dict(request.form.items()))

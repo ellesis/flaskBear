@@ -5,6 +5,19 @@
     <link rel="stylesheet" href="/static/css/styles.css">
   </head>
   <body>
+    <!-- flash message -->
+    <div class="wrap no-bottom messages  bg-{{ saves.get('colors', 'yellow') }} ">
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul class="flashes">
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+    </div>
+    <!-- block content -->
     {% block content %}{% endblock %}    
   </body>
 </html>
