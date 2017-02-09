@@ -158,6 +158,15 @@ opacity: 1;
   width: 100%;
 }
 
+.category-title {
+float: left;
+margin: 35px 0 0 33px;
+width: 100px;
+text-align: left;
+width: 100%;
+}
+
+
 .colors label, .items label {
   cursor: pointer;
 }
